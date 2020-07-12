@@ -7,7 +7,9 @@
   "author": "Akamig <akamig@posteo.net>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.2"
+    "form-data": "^3.0.0",
+    "lodash": "^4.17.19",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
