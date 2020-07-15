@@ -107,4 +107,4 @@ dist
 private/
 
 # Typescript build output
-.build/
+build/
