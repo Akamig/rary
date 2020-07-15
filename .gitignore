@@ -103,5 +103,8 @@ dist
 # TernJS port file
 .tern-port
 
-#Private Test Files
+# Personal information files
 private/
+
+# Typescript build output
+.build/
