@@ -4,6 +4,8 @@ API library for my school library system.
 
 I made this library to automate extending book rental due. because their notify system always sends due date message day earlier. so I always get confused and miss the date, go to school which takes about an hour, just to returning and re-rent books. what a hassle.
 
+Special thanks to ParkSB, for designing the-camp-lib which helped me grasp a basic concept of API Client, typescript usage, and I heavily referenced(i.e. shamelessly copied ) it.
+
 ## Install
 
 ## What can I do with this?
