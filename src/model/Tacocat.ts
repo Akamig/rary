@@ -4,9 +4,10 @@
 */
 
 interface Tacocat {
-  url: string;
-  ssoPrefix: string;
-  libPrefix: string;
+  SSOURL: string;
+  LIBURL: string;
+  SSOLOGON: string;
+  L_TOKEN: string;
 }
 
 export { Tacocat };
