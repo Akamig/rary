@@ -25,6 +25,7 @@ export default async function login(id: string, password: string) {
     if (redirectUrl.includes('portal')) {
       throw new Error('Login failed. Your account seems locked.');
     }
+    console.log('Fetching Redirection URL Success.');
     return redirectUrl;
   });
 
@@ -41,13 +42,19 @@ export default async function login(id: string, password: string) {
     };
   });
 
-  console.log(cookie.ASPNETSessionId);
+  console.log(`Session Key Acquired: "${cookie.ASPNETSessionId}"`);
 
   fetch(`${libPrefix}${url}${ssoLogonSuffix}`, {
     redirect: 'manual',
     headers: {
       Cookie: cookie.ASPNETSessionId,
     },
+  }).then((response) => {
+    if (response.ok) {
+      console.log('SSO Login Success.');
+    } else {
+      throw new Error('SSO Login Unsuccessful.');
+    }
   });
 
   return cookie;
