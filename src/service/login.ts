@@ -3,11 +3,12 @@ import { Cookie } from '../model/Cookie';
 
 export default async function login(id: string, password: string) {
   const LoginForm = new URLSearchParams({
+    l_token: `${L_TOKEN}`,
     user_id: id,
     user_password: password,
   });
 
-  const LoginRes = await fetch(`${ssoPrefix}${url}Login.do`, {
+  const LoginRes = await fetch(`${SSOURL}Login.do`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -44,7 +45,7 @@ export default async function login(id: string, password: string) {
 
   console.log(`Session Key Acquired: "${cookie.ASPNETSessionId}"`);
 
-  fetch(`${libPrefix}${url}${ssoLogonSuffix}`, {
+  fetch(`${LIBURL}${SSOLOGON}`, {
     redirect: 'manual',
     headers: {
       Cookie: cookie.ASPNETSessionId,
