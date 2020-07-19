@@ -8,7 +8,6 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "form-data": "^3.0.0",
     "iconv-lite": "^0.6.2",
     "lodash": "^4.17.19",
     "node-fetch": "^2.6.0"
