@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import { Cookie } from '../model/Cookie';
 
 export default async function login(id: string, password: string) {
   const LoginForm = new URLSearchParams({

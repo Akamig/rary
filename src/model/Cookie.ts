@@ -1,7 +1,5 @@
 interface Cookie {
-  WMONID: string;
-  SSOJSESSIONID: string;
-  'ASP.NET_SessionId': string;
+  ASPNETSessionId: string;
 }
 
-export default Cookie;
+export { Cookie };
