@@ -1,14 +1,14 @@
 import fetch from 'node-fetch';
-import { Cookie } from '../model/Cookie';
+import { Cookie, Tacocat } from '../model';
 
-export default async function login(id: string, password: string) {
+export default async function login(id: string, password: string, tacocat: Tacocat) {
   const LoginForm = new URLSearchParams({
-    l_token: `${L_TOKEN}`,
+    l_token: tacocat.L_TOKEN,
     user_id: id,
     user_password: password,
   });
 
-  const LoginRes = await fetch(`${SSOURL}Login.do`, {
+  const LoginRes = await fetch(`${tacocat.SSOURL}Login.do`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -45,7 +45,7 @@ export default async function login(id: string, password: string) {
 
   console.log(`Session Key Acquired: "${cookie.ASPNETSessionId}"`);
 
-  fetch(`${LIBURL}${SSOLOGON}`, {
+  fetch(`${tacocat.LIBURL}${tacocat.SSOLOGON}`, {
     redirect: 'manual',
     headers: {
       Cookie: cookie.ASPNETSessionId,
