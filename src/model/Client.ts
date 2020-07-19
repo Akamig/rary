@@ -9,6 +9,10 @@ class Client {
   constructor(tacocat: Tacocat) {
     this.tacocat = tacocat;
   }
+
+  async login(id: string, password: string) {
+    this.cookie = await service.login(id, password, this.tacocat);
+  }
 }
 
 export { Client };
