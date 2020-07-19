@@ -8,7 +8,9 @@ export default async function login(id: string, password: string) {
 
   const LoginRes = await fetch(`${ssoPrefix}${url}Login.do`, {
     method: 'POST',
-    body: `${LoginForm}`,
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
     redirect: 'manual',
   }).then(async (response) => {
     let redirectUrl = response.headers.get('location');
