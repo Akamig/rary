@@ -60,3 +60,5 @@ export default async function login(id: string, password: string, tacocat: Tacoc
 
   return cookie;
 }
+
+export { login }
