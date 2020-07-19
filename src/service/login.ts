@@ -13,14 +13,14 @@ export default async function login(id: string, password: string) {
     },
     redirect: 'manual',
   }).then(async (response) => {
-    let redirectUrl = response.headers.get('location');
     if (response.status !== 302) {
       throw new Error(`Response: ${response.status}, Login redirection failed.`);
     }
-    if (redirectUrl === null) {
+    if (!response.headers.get('location')) {
       throw new Error('Login failed, No redirection URL found.');
     }
-    if (redirectUrl?.includes('portal')) {
+    const redirectUrl = response.headers.get('location')!;
+    if (redirectUrl.includes('portal')) {
       throw new Error('Login failed. Your account seems locked.');
     }
     return redirectUrl;
