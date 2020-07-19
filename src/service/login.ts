@@ -27,4 +27,17 @@ export default async function login(id: string, password: string) {
     return redirectUrl;
   });
 
+  const cookie: Cookie = await fetch(LoginRes, {
+    redirect: 'manual',
+  }).then(async (response) => {
+    if (!response.headers.get('set-cookie')!.includes('ASP.NET_SessionId=')) {
+      throw new Error('No ASP Session ID in cookie.');
+    }
+
+    const cookies = response.headers.get('set-cookie')!;
+    return {
+      ASPNETSessionId: cookies.match(/ASP\.NET_SessionId=.*?;/)!.toString(),
+    };
+  });
+
 }
