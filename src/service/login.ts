@@ -40,4 +40,14 @@ export default async function login(id: string, password: string) {
     };
   });
 
+  console.log(cookie.ASPNETSessionId);
+
+  fetch(`${libPrefix}${url}${ssoLogonSuffix}`, {
+    redirect: 'manual',
+    headers: {
+      Cookie: cookie.ASPNETSessionId,
+    },
+  });
+
+  return cookie;
 }
