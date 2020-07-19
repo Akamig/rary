@@ -11,6 +11,7 @@ export default async function login(id: string, password: string) {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
+    body: LoginForm,
     redirect: 'manual',
   }).then(async (response) => {
     if (response.status !== 302) {
