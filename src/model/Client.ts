@@ -1,8 +1,9 @@
 import * as service from '../service';
 
-import Tacocat from './Tacocat';
+import { Cookie, Tacocat } from '.';
 
 class Client {
+  cookie: Cookie;
   tacocat: Tacocat;
 
   constructor(tacocat: Tacocat) {
