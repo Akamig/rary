@@ -9,4 +9,4 @@ interface Tacocat {
   libPrefix: string;
 }
 
-export default Tacocat;
+export { Tacocat };

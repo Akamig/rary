@@ -10,4 +10,4 @@ interface Book {
   dueDate: Date;
 }
 
-export default Book;
+export { Book };
