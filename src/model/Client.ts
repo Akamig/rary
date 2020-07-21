@@ -1,6 +1,6 @@
 import * as service from '../service';
 
-import { Cookie, Tacocat } from '.';
+import { Cookie, Tacocat, Book } from '.';
 
 class Client {
   cookie: Cookie;
@@ -12,6 +12,10 @@ class Client {
 
   async login(id: string, password: string) {
     this.cookie = await service.login(id, password, this.tacocat);
+  }
+
+  async dueRenew(book: Book) {
+    service.dueRenew(book, this.cookie, this.tacocat);
   }
 }
 
