@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import { Cookie, Tacocat } from '../model';
 
-export default async function login(id: string, password: string, tacocat: Tacocat) {
+async function login(id: string, password: string, tacocat: Tacocat) {
   const LoginForm = new URLSearchParams({
     l_token: tacocat.L_TOKEN,
     user_id: id,
@@ -45,7 +45,7 @@ export default async function login(id: string, password: string, tacocat: Tacoc
 
   console.log(`Session Key Acquired: "${cookie.ASPNETSessionId}"`);
 
-  fetch(`${tacocat.LIBURL}${tacocat.SSOLOGON}`, {
+  await fetch(`${tacocat.LIBURL}${tacocat.SSOLOGON}`, {
     redirect: 'manual',
     headers: {
       Cookie: cookie.ASPNETSessionId,
@@ -61,4 +61,4 @@ export default async function login(id: string, password: string, tacocat: Tacoc
   return cookie;
 }
 
-export { login }
+export { login };
