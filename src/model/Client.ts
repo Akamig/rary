@@ -1,6 +1,6 @@
 import * as service from '../service';
 
-import { Cookie, Tacocat } from '.';
+import { Cookie, Tacocat, Book } from '.';
 
 class Client {
   cookie: Cookie;
@@ -15,7 +15,7 @@ class Client {
   }
 
   async getBookList() {
-    await service.getBookList(this.cookie, this.tacocat);
+    return service.getBookList(this.cookie, this.tacocat);
   }
 }
 
