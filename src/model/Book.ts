@@ -6,8 +6,9 @@ interface Book {
   userSerial: string;
   bookSerial: string;
   title: string;
-  rentDate: Date;
-  dueDate: Date;
+  rentDate: string;
+  dueDate: string;
+  returnDate: string;
 }
 
 export { Book };
