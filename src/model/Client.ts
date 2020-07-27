@@ -14,12 +14,10 @@ class Client {
     this.cookie = await service.login(id, password, this.tacocat);
   }
 
-
   async dueRenew(book: Book) {
     return service.dueRenew(book, this.cookie, this.tacocat);
   }
-  
-  
+
   async getBookList() {
     return service.getBookList(this.cookie, this.tacocat);
   }

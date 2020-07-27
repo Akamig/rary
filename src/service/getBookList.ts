@@ -9,12 +9,12 @@ async function getBookList(cookie: Cookie, tacocat: Tacocat) {
       Cookie: cookie.ASPNETSessionId,
     },
     redirect: 'manual',
-  }).then(async (resp) => {
-    const body = iconv.decode(await resp.buffer(), 'euc-kr');
-    const [header, ...rows] = body.replace(/"/g, '').split('\r\n');
+  }).then(async (res) => {
+    const csv = iconv.decode(await res.buffer(), 'euc-kr');
+    const [header, ...rows] = csv.replace(/"/g, '').split('\r\n');
     return rows.map((rowStr) => {
       const entry = rowStr.split(',');
-      const row: Book = {
+      const book: Book = {
         userSerial: entry[0],
         bookSerial: entry[1],
         title: entry[2],
@@ -22,7 +22,7 @@ async function getBookList(cookie: Cookie, tacocat: Tacocat) {
         dueDate: entry[4],
         returnDate: entry[5],
       };
-      return row;
+      return book;
     });
   });
   return bookList;

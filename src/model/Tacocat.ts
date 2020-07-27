@@ -13,7 +13,7 @@ class Tacocat {
     SSOURL: string,
     LIBURL: string,
     SSOLOGON: string,
-    L_TOKEN: string
+    L_TOKEN: string,
   ) {
     this.SSOURL = SSOURL;
     this.LIBURL = LIBURL;
