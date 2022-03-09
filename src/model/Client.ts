@@ -3,7 +3,7 @@ import * as service from '../service';
 import { Cookie, Tacocat, Book } from '.';
 
 class Client {
-  cookie: Cookie;
+  cookie!: Cookie;
   tacocat: Tacocat;
 
   constructor(tacocat: Tacocat) {
